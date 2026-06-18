@@ -83,6 +83,7 @@ export const Route = createFileRoute("/")({
 
 const NAV = [
   { label: "Home", href: "#home" },
+  { label: "Our Farm", href: "#livestock" },
   { label: "About", href: "#about" },
   { label: "Products", href: "#products" },
   { label: "Location", href: "#location" },
@@ -645,8 +646,8 @@ function Footer() {
         <div className="grid md:grid-cols-3 gap-10">
           <div>
             <div className="flex items-center gap-2">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-flame">
-                <Drumstick className="h-5 w-5" />
+              <span className="grid h-10 w-10 place-items-center rounded-xl bg-card overflow-hidden">
+                <img src={logoImg} alt="Anu Chicken logo" width={40} height={40} className="h-8 w-8 object-contain" />
               </span>
               <span className="font-extrabold text-lg">Anu Chicken</span>
             </div>
