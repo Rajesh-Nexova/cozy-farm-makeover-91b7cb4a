@@ -22,6 +22,12 @@ import pCurry from "@/assets/product-curry.jpg";
 import pBoneless from "@/assets/product-boneless.jpg";
 import pSpecial from "@/assets/product-special.jpg";
 import pMarinated from "@/assets/product-marinated.jpg";
+import logoImg from "@/assets/logo.png";
+import liveChickenImg from "@/assets/live-chicken.jpg";
+import henImg from "@/assets/hen.jpg";
+import eggsImg from "@/assets/eggs.jpg";
+import quailImg from "@/assets/quail.jpg";
+import chickImg from "@/assets/chick.jpg";
 
 const PHONE = "6379151623";
 const WA_LINK = `https://wa.me/91${PHONE}?text=${encodeURIComponent(
@@ -128,6 +134,7 @@ function Home() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <Hero />
+      <Livestock />
       <About />
       <Products />
       <WhyUs />
@@ -146,11 +153,12 @@ function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-4">
           <a href="#home" className="flex items-center gap-2 min-w-0">
-            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-flame text-primary-foreground shadow-flame">
-              <Drumstick className="h-5 w-5" />
+            <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-card border border-border shadow-card overflow-hidden">
+              <img src={logoImg} alt="Anu Chicken logo" width={44} height={44} className="h-9 w-9 object-contain" />
             </span>
-            <span className="truncate font-extrabold text-lg tracking-tight">
+            <span className="truncate font-extrabold text-lg tracking-tight leading-none">
               Anu <span className="text-flame">Chicken</span>
+              <span className="block text-[10px] font-semibold tracking-[0.2em] text-muted-foreground mt-0.5">FARM • FRESH • DAILY</span>
             </span>
           </a>
           <nav className="hidden md:flex items-center gap-1">
@@ -209,51 +217,128 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <img src={heroImg} alt="Fresh raw chicken" width={1920} height={1080} className="h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-charcoal/90 via-charcoal/70 to-charcoal/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/80 via-transparent to-transparent" />
-      </div>
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 md:py-32 lg:py-40">
-        <div className="max-w-2xl text-primary-foreground">
-          <span className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 backdrop-blur px-4 py-1.5 text-xs font-semibold border border-primary-foreground/20">
-            <Sparkles className="h-3.5 w-3.5 text-accent" /> Daily Fresh • Hygienic • Trusted
+    <section id="home" className="relative overflow-hidden bg-cream">
+      <div className="absolute -top-32 -right-32 h-[28rem] w-[28rem] rounded-full bg-flame opacity-20 blur-3xl" />
+      <div className="absolute -bottom-40 -left-32 h-[24rem] w-[24rem] rounded-full bg-accent opacity-30 blur-3xl" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 md:py-24 lg:py-28 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <span className="inline-flex items-center gap-2 rounded-full bg-card border border-border px-4 py-1.5 text-xs font-semibold text-primary shadow-card">
+            <Sparkles className="h-3.5 w-3.5" /> Farm Fresh • Daily • Hygienic
           </span>
-          <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight">
-            Fresh & Hygienic <span className="text-flame">Raw Chicken</span> Daily
+          <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-foreground">
+            From our farm <br className="hidden sm:block" /> to your <span className="text-flame">kitchen.</span>
           </h1>
-          <p className="mt-5 text-base sm:text-lg text-primary-foreground/85 max-w-xl">
-            Anu Chicken — your trusted fresh chicken shop in Gururajapettai. Cut fresh, packed clean, served with a smile.
+          <p className="mt-5 text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed">
+            Anu Chicken raises healthy live chickens, hens, quails and chicks — and delivers the freshest cuts daily to Gururajapettai families.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={CALL_LINK}
               className="inline-flex items-center gap-2 rounded-full bg-flame px-6 py-3.5 text-sm font-bold text-primary-foreground shadow-flame hover:scale-[1.03] transition-transform"
             >
-              <Phone className="h-4 w-4" /> Call Now
+              <Phone className="h-4 w-4" /> Call to Order
             </a>
             <a
               href={WA_LINK}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full bg-primary-foreground text-charcoal px-6 py-3.5 text-sm font-bold hover:bg-accent transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-foreground/10 bg-card px-6 py-3.5 text-sm font-bold text-foreground hover:border-primary transition-colors"
             >
-              <MessageCircle className="h-4 w-4" /> WhatsApp Order
+              <MessageCircle className="h-4 w-4" /> WhatsApp Us
             </a>
           </div>
-          <div className="mt-10 grid grid-cols-3 gap-4 max-w-md">
+          <div className="mt-10 grid grid-cols-3 gap-3 max-w-md">
             {[
               { k: "100%", v: "Fresh Daily" },
               { k: "5★", v: "Local Rated" },
               { k: "10min", v: "Quick Cut" },
             ].map((s) => (
-              <div key={s.v} className="rounded-2xl bg-primary-foreground/10 backdrop-blur border border-primary-foreground/15 px-4 py-3">
-                <div className="text-2xl font-extrabold text-accent">{s.k}</div>
-                <div className="text-xs text-primary-foreground/80">{s.v}</div>
+              <div key={s.v} className="rounded-2xl bg-card border border-border px-4 py-3 shadow-card">
+                <div className="text-2xl font-extrabold text-flame">{s.k}</div>
+                <div className="text-xs text-muted-foreground font-medium">{s.v}</div>
               </div>
             ))}
           </div>
+        </div>
+        <div className="relative">
+          <div className="absolute inset-0 -m-6 bg-flame opacity-25 blur-3xl rounded-full" />
+          <div className="relative aspect-square rounded-[2.5rem] overflow-hidden border-4 border-card shadow-glow">
+            <img
+              src={liveChickenImg}
+              alt="Healthy live rooster at Anu Chicken farm"
+              width={1280}
+              height={1280}
+              className="h-full w-full object-cover"
+            />
+          </div>
+          <div className="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-2xl bg-card border border-border shadow-card p-3 pr-5 animate-float">
+            <img src={chickImg} alt="Baby chick" width={56} height={56} className="h-14 w-14 rounded-xl object-cover" />
+            <div>
+              <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Raised with care</div>
+              <div className="text-sm font-extrabold">Healthy & natural</div>
+            </div>
+          </div>
+          <div className="absolute -top-4 -right-4 hidden sm:flex items-center gap-2 rounded-full bg-card border border-border shadow-card px-4 py-2">
+            <span className="h-2.5 w-2.5 rounded-full bg-flame animate-pulse" />
+            <span className="text-xs font-bold">Open Today</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+const LIVESTOCK = [
+  { name: "Live Chicken", desc: "Healthy free-range broilers raised on our farm.", img: liveChickenImg },
+  { name: "Country Hen", desc: "Naati / Naadan country hens — rich flavour.", img: henImg },
+  { name: "Farm Eggs", desc: "Fresh brown & white eggs, collected daily.", img: eggsImg },
+  { name: "Quail", desc: "Tender quail birds & eggs on request.", img: quailImg },
+  { name: "Baby Chicks", desc: "Day-old chicks for farms & home rearing.", img: chickImg },
+];
+
+function Livestock() {
+  return (
+    <section id="livestock" className="py-20 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+          <div>
+            <span className="text-xs font-bold tracking-widest text-primary uppercase">Our Farm</span>
+            <h2 className="mt-3 text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight max-w-xl">
+              Raised live. <span className="text-flame">Delivered fresh.</span>
+            </h2>
+          </div>
+          <p className="text-muted-foreground max-w-md">
+            We rear our own chickens, hens, quails and chicks — so you always know exactly where your food comes from.
+          </p>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+          {LIVESTOCK.map((item, i) => (
+            <article
+              key={item.name}
+              className={`group relative rounded-3xl overflow-hidden border border-border bg-card shadow-card hover:shadow-flame hover:-translate-y-1 transition-all duration-300 ${
+                i === 0 ? "col-span-2 md:col-span-1 lg:col-span-2 lg:row-span-2" : ""
+              }`}
+            >
+              <div className={`relative overflow-hidden ${i === 0 ? "aspect-square lg:aspect-auto lg:h-full" : "aspect-square"}`}>
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  width={1024}
+                  height={1024}
+                  loading="lazy"
+                  className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-charcoal/85 via-charcoal/10 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                  <h3 className="text-base sm:text-lg font-extrabold text-primary-foreground">{item.name}</h3>
+                  <p className="mt-1 text-xs sm:text-sm text-primary-foreground/80 line-clamp-2">{item.desc}</p>
+                </div>
+                <span className="absolute top-3 right-3 rounded-full bg-card/90 backdrop-blur text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 text-foreground">
+                  Live
+                </span>
+              </div>
+            </article>
+          ))}
         </div>
       </div>
     </section>
