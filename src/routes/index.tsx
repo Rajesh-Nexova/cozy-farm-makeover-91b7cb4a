@@ -588,9 +588,21 @@ function Contact() {
                 <div className="text-lg font-extrabold">Chat & order now</div>
               </div>
             </a>
-            <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5">
+            <a
+              href="mailto:aunchicken777@gmail.com"
+              className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 hover:shadow-card hover:border-primary/40 transition-all"
+            >
               <span className="grid h-12 w-12 place-items-center rounded-xl bg-flame text-primary-foreground shadow-flame">
                 <Mail className="h-5 w-5" />
+              </span>
+              <div>
+                <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Email</div>
+                <div className="text-lg font-extrabold">aunchicken777@gmail.com</div>
+              </div>
+            </a>
+            <div className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5">
+              <span className="grid h-12 w-12 place-items-center rounded-xl bg-flame text-primary-foreground shadow-flame">
+                <MapPin className="h-5 w-5" />
               </span>
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-muted-foreground">Visit</div>
@@ -661,6 +673,7 @@ function Footer() {
           </div>
           <div>
             <div className="text-xs font-bold uppercase tracking-widest text-accent">Contact</div>
+            <a href="mailto:aunchicken777@gmail.com" className="mt-3 block text-sm text-primary-foreground/80 hover:text-accent">aunchicken777@gmail.com</a>
             <a href={CALL_LINK} className="mt-3 block text-sm text-primary-foreground/80 hover:text-accent">+91 6379151623</a>
             <a href={WA_LINK} target="_blank" rel="noreferrer" className="mt-1.5 block text-sm text-primary-foreground/80 hover:text-accent">WhatsApp Order</a>
           </div>
